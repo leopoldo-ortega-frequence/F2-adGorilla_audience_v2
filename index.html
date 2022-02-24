@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/audience.css" />
+    <title>F2 - AdGorilla</title>
+    <script src="https://unpkg.com/mustache@4.2.0/mustache.js"></script>
+  </head>
+  <body>
+    <div id="slide-container">
+      <div id="slide-left">
+        <script id="template" type="x-tmpl-mustache">
+          <div class="slide-left-decoration"></div>
+          <div class="slide-left-content">
+            <img alt="logo" src="./assets/logo.png" />
+            <h1>{{header}}</h1>
+            <p>
+              {{description}}
+            </p>
+          </div>
+          <div class="slide-left-footer">
+            <div class="footer-block">
+              <h3>{{page}}</h3>
+            </div>
+            <span>{{date}}</span>
+          </div>
+        </script>
+      </div>
+
+      <!-- SVG Graphs go here -->
+      <div id="slide-content">
+        <div id="audience-chart"></div>
+        <div id="website-chart">
+          <div class="title">
+            <h2>Top Websites</h2>
+            <ul class="title-icons">
+              <li>
+                <img class="icon" src="./assets/cog.svg" />
+                <span>INDUSTRY</span>
+              </li>
+              <li>
+                <img class="icon" src="./assets/bars.svg" />
+                <span>AUDIENCE INTERESTS</span>
+              </li>
+              <li>
+                <img class="icon" src="./assets/people.svg" /><span
+                  >DEMOGRAPHIC</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="horizontal-line"></div>
+          <div class="website-list">
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="js/index.js"></script>
+    <script src="./js//template.js"></script>
+  </body>
+</html>

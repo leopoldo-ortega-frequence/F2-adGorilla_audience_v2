@@ -1,0 +1,60 @@
+#website-chart {
+  margin: 1.2rem 2rem 0 2rem;
+}
+
+#website-chart .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#website-chart .title .title-icons {
+  display: flex;
+  align-items: center;
+}
+
+#website-chart .title .title-icons li {
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+#website-chart .title .title-icons li span {
+  margin-left: 1rem;
+}
+#website-chart .website-list {
+  margin-top: 1rem;
+}
+#website-chart .website-list ul {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 30% 30% 30%;
+  text-align: center;
+}
+#website-chart .website-list ul li {
+  width: 100%;
+  margin: 6px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#website-chart .website-list ul li img {
+  margin: 0 2px;
+}
+#website-chart .website-list ul li span {
+  margin-left: 8px;
+  float: left;
+  font-size: 12px;
+}
+.icon {
+  width: 14px;
+  float: right;
+}
+
+.svg-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  color: #333;
+}
