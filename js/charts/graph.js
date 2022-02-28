@@ -65,12 +65,14 @@ export const drawGraph = (selection, props) => {
   // scales
   const xScale = d3
     .scaleLinear()
-    .range([0, width - 20])
-    .domain([0, 100]);
+    .range([140, width - 120])
+    .domain(d3.extent(data.map((d) => d.industry)));
   const yScale = d3
     .scaleLinear()
-    .range([height - 20, 0])
-    .domain([0, 100]);
+    .range([height - 70, 80])
+    .domain(d3.extent(data.map((d) => d.audience)));
+  // .range([height - 20, 0])
+  // .domain([0, 100]);
 
   // Lines
   // bottom vertical line
@@ -166,14 +168,15 @@ export const drawGraph = (selection, props) => {
     //
     labels
       .attr("width", (d) => d.radius * 2 - d.radius * 0.3)
+      .attr("font-size", (d) => {
+        return d.radius / 3;
+      })
       .attr("height", (d) => d.radius * 2 - d.radius * 0.3)
       .attr("x", (d) => d.x - (d.radius - d.radius * 0.1))
       .attr("y", (d) => d.y - d.radius + d.radius * 0.1);
     innerText.html((d) => d.interest);
   }
 
-  // return chart function from closure
-  //return chart;
   // redner the chart
   chart(selection, data);
 };
