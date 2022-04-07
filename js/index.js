@@ -1,6 +1,7 @@
 // data import
 import { createAudienceData, createWebsiteList } from "./data/data.js";
 import { websiteArray } from "./data/websites.js";
+import {data} from "./data.js"
 //DOM
 const websiteList = document.querySelector(".website-list ul");
 
@@ -50,7 +51,8 @@ const chartG = chartSVG
 
 //draw chart here
 drawGraph(chartG, {
-  data: createAudienceData(interestsArray),
+  //data: createAudienceData(interestsArray),
+  data: data,
   width: WIDTH,
   height: 400,
   xAxisTitle: "audience interest",

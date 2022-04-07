@@ -3,16 +3,18 @@
 // global variables
 export const drawGraph = (selection, props) => {
   const { data, width, height, xAxisTitle, yAxisTitle } = props;
-  console.log(data);
+  data.forEach((d) => {
+    d.r = d.r + 2;
+  })
   // these will be set in createNodes and chart functions
   let svg = null;
   let bubbles = null;
   let labels = null;
   let innerText = null;
   let nodes = [];
-  const xValue = (d) => d.audience;
-  const yValue = (d) => d.industry;
-  const radiusSize = (d) => d.size;
+  const xValue = (d) => d.x;
+  const yValue = (d) => d.y;
+  const radiusSize = (d) => d.r;
 
   // helper functions needed to render the graph
   // charge is dependent on size of the bubble, so bigger towards the middle
@@ -44,7 +46,7 @@ export const drawGraph = (selection, props) => {
       return {
         ...d,
         radius: radiusScale(radiusSize(d)),
-        size: +d.size,
+        size: +d.r,
         x: xScale(xValue(d)),
         y: yScale(yValue(d)),
       };
@@ -66,11 +68,11 @@ export const drawGraph = (selection, props) => {
   const xScale = d3
     .scaleLinear()
     .range([140, width - 120])
-    .domain(d3.extent(data.map((d) => d.industry)));
+    .domain(d3.extent(data.map((d) => d.y)));
   const yScale = d3
     .scaleLinear()
     .range([height - 70, 80])
-    .domain(d3.extent(data.map((d) => d.audience)));
+    .domain(d3.extent(data.map((d) => d.x)));
   // .range([height - 20, 0])
   // .domain([0, 100]);
 
@@ -169,12 +171,12 @@ export const drawGraph = (selection, props) => {
     labels
       .attr("width", (d) => d.radius * 2 - d.radius * 0.3)
       .attr("font-size", (d) => {
-        return d.radius / 3;
+        return d.radius / 3.2;
       })
       .attr("height", (d) => d.radius * 2 - d.radius * 0.3)
       .attr("x", (d) => d.x - (d.radius - d.radius * 0.1))
       .attr("y", (d) => d.y - d.radius + d.radius * 0.1);
-    innerText.html((d) => d.interest);
+    innerText.html((d) => d.label);
   }
 
   // redner the chart
